@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d772b82680.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+    }
+
+    :root {
+        --navbar-height: 59px;
+    }
+
+    #navbar {
+        display: flex;
+        align-items: center;
+    }
+
+    #logo {
+        margin: 0px 0px;
+    }
+
+    #logo img {
+        margin: 3px 10px;
+        height: 60px;
+    }
+
+    #navbar {
+        position: relative;
+        border-bottom: 3px solid rgb(0, 0, 0);
+        border-radius: 0px 0px 15px 15px;
+        box-shadow: 0px 12px 25px rgb(36, 103, 248);
+    }
+
+    #navbar ul {
+        display: flex;
+        font-family: 'Roboto Slab', serif;
+        margin-top: 13px;
+    }
+
+    #navbar::before {
+        content: " ";
+        background-color: rgb(82, 140, 255);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 7;
+        box-shadow: 0px 12px 25px rgb(3, 3, 3);
+
+    }
+
+    #navbar ul li {
+        list-style: none;
+        font-size: 1.4rem;
+    }
+
+    #navbar ul li a {
+        display: block;
+        padding: 3px 22px;
+        text-decoration: none;
+        border-radius: 20px;
+        color: black
+    }
+
+    #navbar ul li a:hover {
+        color: black;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .Sign {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+    }
+
+    #menu-icon {
+        font-size: 35px;
+        color: black;
+        cursor: pointer;
+        z-index: 1001;
+        display: none;
+
+    }
+
+    @media (max-width: 1280px) {
+        #navbar li {
+            padding: 5px 0;
+            margin: 0px 2px;
+            height: 46px;
+        }
+    }
+
+    @media (max-width: 1090px) {
+        #menu-icon {
+            display: block;
+            margin-left: 20px;
+        }
+
+        .item {
+            position: absolute;
+            top: 100%;
+            right: 100%;
+            width: 190px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-radius: 10px;
+            transition: all .50s ease;
+        }
+
+        .item a {
+            display: block;
+            margin: 10px 0px;
+            padding: 0px 25px;
+            transition: all .50s ease;
+        }
+
+        .item a:hover {
+            background-color: black;
+            color: red;
+            transform: translateY(-5px);
+            background: black;
+        }
+
+        .item a.active {
+            color: red;
+        }
+
+        .item.open {
+            left: 2%;
+        }
+    }
+
+    #search {
+        border-radius: 15px;
+        width: 170px;
+        height: 30px;
+    }
+
+    #search:hover {
+        color: rgb(3, 3, 3);
+        background: rgb(255, 247, 5);
+        font-size: 15px;
+    }
+
+    #button {
+        border-radius: 20px;
+        height: 30px;
+        width: 70px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    #button:hover {
+        /* color: rgb(0, 144, 255); */
+        background: rgb(255, 247, 5);
+        font-size: 15px;
+    }
+
+    #about {
+        margin-right: 168px;
+    }
+
+    /*home section*/
+    #home {
+        display: flex;
+        flex-direction: column;
+        padding: 3px 2px;
+        justify-content: center;
+        align-items: center;
+        content: " ";
+        background: linear-gradient(2deg, #b7ecf4, #5fa8fc 80%);
+        border-radius: 0px 0px 40px 40px;
+        height: 290px;
+    }
+
+    #home h1 {
+        color: black;
+        text-align: center;
+        margin-top: -69px;
+        margin-bottom: -20px;
+        font-family: 'Bad Script', cursive;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    #home p {
+        color: black;
+        text-align: center;
+        font-size: 1.4rem;
+        margin-top: 12px;
+        margin-bottom: -14px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .neet-jeet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 29px;
+        margin-left: 10px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .btn {
+        padding: 6px 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+        color: rgb(7, 7, 7);
+        margin-top: 27px;
+        margin-bottom: -26px;
+        font-size: 1.3rem;
+        font-family: 'Roboto Slab', serif;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        color: black;
+        background: rgb(255, 255, 5);
+        font-size: 21px;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: sans-serif;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .h-primary {
+        align-items: center;
+        font-size: 2.5rem;
+        padding: 24px;
+        display: block;
+        justify-content: center;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .h-primary-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.3rem;
+        padding: 24px;
+        font-family: 'Roboto Slab', serif;
+        color: rgb(0, 0, 0);
+    }
+
+    .line1 {
+        display: flex;
+        margin: -22px auto;
+        background-color: brown;
+        border-radius: 70px;
+        height: 2px;
+        margin-bottom: 15px;
+    }
+
+    .slider {
+        overflow: hidden;
+        margin: auto;
+        margin-top: 10px;
+        /* transform: translate(-50%, -50%); */
+        width: 70%;
+        border: 5px solid rgb(248, 248, 248);
+        border-radius: 20px;
+        box-shadow: 0px 12px 25px rgb(141, 150, 156);
+    }
+
+    .slider figure {
+        width: 400%;
+        position: relative;
+        margin: 0px;
+        animation: animate 20s linear infinite;
+
+    }
+
+    .slider figure img {
+        width: 25%;
+        float: left;
+    }
+
+    @keyframes animate {
+        0% {
+            left: 0px;
+        }
+
+        20% {
+            left: 0px;
+        }
+
+        25% {
+            left: -100%;
+
+        }
+
+        45% {
+            left: -100%;
+        }
+
+        50% {
+            left: -200%
+        }
+
+        70% {
+            left: -200%
+        }
+
+        75% {
+            left: -300%;
+        }
+
+        95% {
+            left: -300%;
+        }
+
+        100% {
+            left: -300%;
+        }
+    }
+
+    .h-primary-center1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 2.8rem;
+        font-family: 'Roboto Slab', serif;
+        padding-top: 24px;
+        color: rgb(0, 0, 0);
+    }
+
+    .box1 {
+        border-radius: 20px;
+        display: block;
+        justify-content: center;
+    }
+
+    .box1 img {
+        font-size: 25px;
+        text-shadow: 12px 10px 20px rgb(249, 249, 249);
+        box-shadow: 0px 16px 25px rgb(141, 150, 156);
+    }
+
+    .box1 img {
+        width: 269px;
+        height: 269px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 17px auto;
+        border: 5px solid rgb(246, 248, 250);
+        border-radius: 500px;
+
+    }
+
+    .name {
+        display: block;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+        font-size: 2.3rem;
+        color: black;
+        background-color: rgb(156, 214, 252);
+        border-radius: 20px;
+    }
+
+    .line2 {
+        display: flex;
+        justify-content: center;
+        margin: -7px auto;
+        background-color: brown;
+        border-radius: 70px;
+        height: 2px;
+        width: 270px;
+        margin-bottom: 26px;
+    }
+
+    .physics {
+        display: flex;
+        margin: 15px;
+        border: 2px solid rgb(143, 143, 171);
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+        box-shadow: 0px 8px 15px rgb(141, 150, 156);
+    }
+
+    .photo1 {
+        height: 140px;
+        width: 130px;
+        margin: auto;
+        margin-left: 41px;
+        margin-top: 44px;
+        margin-bottom: 30px;
+        border-radius: 54px;
+    }
+
+    .photo2 {
+        height: 144px;
+        width: 125px;
+        margin: auto;
+        margin-left: 41px;
+        margin-top: 44px;
+        margin-bottom: 30px;
+        border-radius: 54px;
+    }
+
+    .pr4 {
+        width: 75%;
+        margin: 227px;
+        margin-top: -112px;
+        margin-right: 0px;
+        margin-bottom: -5px;
+        font-family: system ui;
+        font-size: 16px
+    }
+
+    b {
+        color: rgb(2, 61, 255);
+        display: contents;
+    }
+
+    .h-primary-center2 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: #f39108e8;
+        font-size: 2.4rem;
+        font-family: 'Roboto Slab', serif;
+        margin: auto;
+        margin-top: 18px;
+    }
+
+    h2 {
+        margin-left: -125px;
+    }
+
+    .math {
+        display: flex;
+        margin: 15px;
+        border: 2px solid rgb(151, 151, 176);
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        color: rgb(3, 3, 3);
+        margin-bottom: 20px;
+        box-shadow: 0px 8px 15px rgb(141, 150, 156);
+    }
+
+    .h-primary-center3 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: #f39108e8;
+        font-size: 2.5rem;
+        font-family: 'Roboto Slab', serif;
+        margin: auto;
+        margin-top: 18px;
+    }
+
+    .pr5 {
+        width: 75%;
+        margin: 232px;
+        margin-top: -114px;
+        margin-right: 54px;
+        margin-bottom: -5px;
+        font-family: system ui;
+        font-size: 16px
+    }
+
+    .pr6 {
+        width: 75%;
+        margin: 229px;
+        margin-top: -120px;
+        margin-right: 54px;
+        margin-bottom: -5px;
+        font-family: system ui;
+        font-size: 16px
+    }
+
+
+    /* Background Animation */
+    .bg {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: rgb(0, 140, 255);
+        border-radius: 40px;
+        box-shadow: 0px 16px 25px rgb(141, 150, 156);
+    }
+
+    .glass {
+        position: absolute;
+        top: 100;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 42px;
+    }
+
+    .glass li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        /* border: 1px solid rgba(255, 255, 255, 0.18); */
+        animation: spin 8s linear infinite;
+        bottom: -150px;
+
+    }
+
+    .glass li:nth-child(1) {
+        left: 0%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(2) {
+        left: 21%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 9s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(3) {
+        left: 85%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(4) {
+        left: 48%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(5) {
+        left: 50%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 9s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(6) {
+        left: 89%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 8s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(7) {
+        left: 28%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 3s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(8) {
+        left: 71%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 6s;
+        animation-duration: 15s;
+    }
+
+    .glass li:nth-child(9) {
+        left: 85%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 2s;
+    }
+
+    .glass li:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 8;
+            /* waise 1 hai */
+            border-radius: 0;
+        }
+
+        100% {
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 4;
+            /* waise 0 hai */
+            border-radius: 50%;
+        }
+    }
+
+    #contact {
+        position: relative;
+    }
+
+    #contact::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        /* background: linear-gradient(120deg, #f4f0b7, #a4fcb2 70%); */
+    }
+
+    .primary-center-21 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: black;
+        font-size: 2.5rem;
+        font-family: 'Roboto Slab', serif;
+        margin: auto;
+        margin-top: 18px;
+        padding-top: 20px;
+    }
+
+    #contact-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #contact-box input,
+    #contact-box output {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #contact-box form {
+        width: 244px;
+    }
+
+    #contact-box label {
+        font-size: 1.3rem;
+        font-family: 'Roboto Slab', serif;
+        color: black;
+    }
+
+    .form-group {
+        padding: 5px;
+    }
+
+    #submit1 {
+        border-radius: 15px;
+        width: 170px;
+        height: 30px;
+        margin: 1px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .submit12 {
+        display: flex;
+        align-items: center;
+        margin-left: 9px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #submit:hover {
+        color: rgb(3, 3, 3);
+        background: rgb(255, 247, 5);
+    }
+
+    .rest {
+        width: 90px;
+    }
+
+    #reset {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        height: 33px;
+        width: 90px;
+        font-size: 15px;
+        margin-left: 60px;
+        cursor: pointer;
+    }
+
+    #reset:hover {
+        color: rgb(13, 0, 255);
+        background: rgb(255, 247, 5);
+        font-size: 15px;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .glass img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+
+    #end {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 420px;
+    }
+
+    .text {
+        margin-top: 10px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text h1 {
+        color: rgb(0, 0, 0);
+        margin-top: -717px;
+        font-size: 58px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    footer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: #3586ff;
+        height: 150px;
+        padding: 20px 50px;
+        flex-direction: column;
+    }
+
+    footer .social-icons,
+    footer .Description {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0px;
+        flex-wrap: wrap;
+        font-size: 18px;
+    }
+
+    footer .social-icons li,
+    footer .Description li {
+        list-style: none;
+
+    }
+
+    footer .social-icons li a {
+        font-size: 2em;
+        color: black;
+        margin: 0 10px;
+        display: inline-block;
+        text-decoration: none;
+
+    }
+
+
+
+    .call:hover {
+        transform: translateY(-20px);
+        transition: 0.5s;
+    }
+
+    .face:hover {
+        transform: translateY(-20px);
+        transition: 0.5s;
+    }
+
+    footer .Description li a {
+        font-size: 1.2em;
+        color: black;
+        margin: 0 10px;
+        display: inline-block;
+        text-decoration: none;
+        opacity: 0.75;
+        transition: 0.5s;
+
+    }
+
+    footer .Description li a:hover {
+        opacity: 1;
+    }
+
+    .description {
+        font-size: 25px;
+    }
+
+    footer p {
+        color: black;
+        margin-top: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        opacity: 0.75;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    footer .wave {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url(wave1.png);
+        background-size: 1000px 100px;
+    }
+
+    footer .wave#wave1 {
+        z-index: 1000;
+        opacity: 1;
+        bottom: 0;
+        animation: animatewave 4s linear infinite;
+    }
+
+    footer .wave#wave2 {
+        z-index: 999;
+        opacity: 1;
+        bottom: 0;
+        animation: animatewave-02 4s linear infinite;
+    }
+
+    footer .wave#wave3 {
+        z-index: 1000;
+        opacity: 0.2;
+        bottom: 15px;
+        animation: animatewave-02 3s linear infinite;
+    }
+
+    footer .wave#wave4 {
+        z-index: 999;
+        opacity: 0.7;
+        bottom: 20px;
+        animation: animatewave-02 3s linear infinite;
+    }
+
+    @keyframes animatewave {
+        0% {
+            background-position-x: 1000px;
+        }
+
+        100% {
+            background-position-x: 0px;
+        }
+    }
+
+    @keyframes animatewave-02 {
+        0% {
+            background-position-x: 0px;
+        }
+
+        100% {
+            background-position-x: 1000px;
+        }
+    }
+
+    /* OUR ADVANTAGES */
+    .adtg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(0, 0, 0);
+        font-size: 50px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    #dld1 {
+        display: flex;
+        margin: 24px;
+        flex-wrap: wrap;
+    }
+
+    #dld1 .download1 {
+        padding: 14px;
+        margin: 4px 15px;
+        border-radius: 28px;
+        margin-bottom: 20px;
+    }
+
+    #dld1 .download1 img {
+        height: 330px;
+        width: 330px;
+        margin: auto;
+        display: block;
+    }
+
+    #dld1 .download1 img:hover {
+        transition: 0.4s;
+        transform: translateY(-20px);
+    }
+
+    #dld1 .download1 p {
+        color: rgb(0, 0, 0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        margin-left: 30px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .line3 {
+        display: flex;
+        justify-content: center;
+        margin: -7px auto;
+        background-color: rgb(0, 140, 255);
+        border-radius: 70px;
+        height: 2px;
+        width: 390px;
+    }
+
+    @media(min-width: 437px) and (max-width: 1300px) {
+        footer .social-icons li a:hover {
+            transform: translateY(-20px);
+            transition: 0.5s;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 437px) {
+        .face3:hover {
+            transform: translateY(20px);
+            transition: 0.5s;
+            
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 378px) {
+        .face2:hover {
+            transform: translateY(20px);
+            transition: 0.5s;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 326px) {
+        .face:hover {
+            transform: translateY(20px);
+            transition: 0.5s;
+        }
+    }
+
+    @media(max-width:1090px) {
+        #logo {
+            display: block;
+            margin-left: auto;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 390px) {
+        #dld1 .download1 img {
+            width: 200px;
+            height: auto;
+        }
+
+        #dld1 .download1 p {
+            margin-left: 21px;
+            font-size: 27px;
+        }
+    }
+
+    @media(min-width: 750px) and (max-width: 823px) {
+        #dld1 .download1 img {
+            margin-left: 185px;
+        }
+
+        #dld1 .download1 p {
+            margin-left: 201px;
+        }
+    }
+
+    @media(min-width: 500px) and (max-width: 580px) {
+        #dld1 .download1 img {
+            margin-left: 53px;
+        }
+
+        #dld1 .download1 p {
+            margin-left: 51px;
+        }
+    }
+
+    @media(min-width: 900px) and (max-width: 1100px) {
+        #dld1 .download1 img {
+            margin-left: 69px;
+        }
+
+        #dld1 .download1 p {
+            margin-left: 56px;
+        }
+    }
+
+    @media(min-width: 900px) and (max-width: 961px) {
+        #dld1 .download1 img {
+            margin-left: 251px;
+        }
+
+        #dld1 .download1 p {
+            margin-left: 268px;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 700px) {
+        #search {
+
+            display: none;
+        }
+    }
+
+    @media(max-width:1090px) {
+        .h-primary-center {
+            display: block;
+            margin-left: auto;
+
+        }
+    }
+
+    @media(min-width: 280px) and (max-width:430px) {
+        .slider {
+            height: 325px;
+        }
+
+        .slider figure img {
+            height: 325px;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width:350px) {
+        .slider {
+            height: 230px;
+        }
+
+        .slider figure img {
+            height: 230px;
+        }
+    }
+
+    @media(min-width: 670px) and (max-width: 1240px) {
+
+        .third {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 60px;
+            padding: 0px;
+        }
+    }
+
+    @media(min-width: 670px) and (max-width: 1190px) {
+        .photo1 {
+            margin-left: 16px;
+        }
+
+        .photo2 {
+            margin-left: 28px;
+        }
+
+        .pr4 {
+            margin-right: 0px;
+        }
+
+        .pr5 {
+            margin-right: 0px;
+            margin-top: -114px;
+        }
+
+        .pr6 {
+            margin-right: 0px;
+            margin-top: -118px;
+        }
+
+        .physics {
+            padding: 10px;
+        }
+
+        .h-primary-center2 {
+            margin-left: auto;
+        }
+
+        .h-primary-center3 {
+            margin-left: auto;
+        }
+    }
+
+    @media(min-width: 530px) and (max-width: 960px) {
+        .pr4 {
+            margin-top: -115px;
+            margin-left: 195px;
+            margin-right: 0px;
+        }
+
+        .pr5 {
+
+            margin-top: -120px;
+            margin-left: 208px;
+            margin-bottom: 7px;
+        }
+
+        .pr6 {
+            margin-top: -120px;
+            margin-left: 204px;
+            margin-bottom: 7px;
+        }
+    }
+
+    @media(min-width: 530px) and (max-width: 670px) {
+        .photo1 {
+            margin-left: 19px;
+        }
+
+        .photo2 {
+            margin-left: 31px;
+        }
+
+        .physics {
+            padding: 10px;
+        }
+
+        .h-primary-center2 {
+            margin-left: 200px;
+        }
+
+        .h-primary-center3 {
+            margin-left: 200px;
+        }
+
+        .third {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 71px;
+            padding: 0px;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 529px) {
+        .photo1 {
+            margin-left: 177px;
+        }
+
+        .photo2 {
+            margin-left: 182px;
+        }
+
+        .pr4 {
+            margin-top: 10px;
+            margin-left: 73px;
+            margin-bottom: 10px;
+
+        }
+
+        .pr5 {
+            margin-top: 10px;
+            margin-left: 79px;
+            margin-bottom: 10px;
+        }
+
+        .pr6 {
+            margin-top: 10px;
+            margin-left: 85px;
+            margin-bottom: 10px;
+        }
+
+        .first {
+            margin-left: -110px;
+            margin-top: -24px;
+        }
+
+        .second {
+            margin-left: -150px;
+            margin-top: -20px;
+        }
+
+        .third {
+            margin-left: -74px;
+            margin-top: -27px;
+        }
+
+        .fourth {
+            margin-left: -103px;
+            margin-top: -28px;
+        }
+
+        .h-primary-center2 {
+            display: block;
+            margin: auto;
+            margin-left: 250px;
+        }
+
+        .h-primary-center3 {
+            display: block;
+            margin: auto;
+            margin-left: 250px;
+        }
+    }
+
+    @media(min-width: 529px) and (max-width: 580px) {
+        .second {
+            margin-top: -207px;
+            margin-left: -5px;
+        }
+
+        .third {
+            margin-top: -5px;
+            margin-right: 0px;
+            margin-left: -116px;
+        }
+
+        .fourth {
+            margin-top: -2px;
+            margin-left: -112px;
+            margin-right: -10px;
+        }
+
+        #ji {
+            margin-left: 160px;
+        }
+
+    }
+
+    @media(min-width: 470px) and (max-width: 529px) {
+        .second {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -150px;
+        }
+
+    }
+
+    @media(min-width: 420px) and (max-width: 471px) {
+        .photo1 {
+            margin-left: 147px;
+        }
+
+        .photo2 {
+            margin-left: 153px;
+        }
+
+        .first {
+            margin-left: -144px;
+        }
+
+        .second {
+            margin-left: -168px;
+        }
+
+        .third {
+            margin-left: -106px;
+        }
+
+        .fourth {
+            margin-left: -140px;
+        }
+
+        .pr4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+        }
+
+        .pr5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+        }
+
+        .pr6 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+        }
+    }
+
+    @media(min-width: 360px) and (max-width: 420px) {
+        .photo1 {
+            margin-left: 100px;
+        }
+
+        .photo2 {
+            margin-left: 100px;
+        }
+
+        .first {
+            margin-left: -190px;
+        }
+
+        .second {
+            margin-left: -209px;
+        }
+
+        .third {
+            margin-left: -177px;
+        }
+
+        .fourth {
+            margin-left: -186px;
+        }
+
+        .pr4 {
+            margin-left: 49px;
+        }
+
+        .pr5 {
+            margin-left: 54px;
+        }
+
+        .pr6 {
+            margin-left: 56px;
+        }
+    }
+
+    @media(min-width: 300px) and (max-width: 360px) {
+        .photo1 {
+            margin-left: 87px;
+        }
+
+        .photo2 {
+            margin-left: 92px;
+        }
+
+        .first {
+            margin-left: -200px;
+        }
+
+        .second {
+            margin-left: -240px;
+        }
+
+        .third {
+            margin-left: -185px;
+        }
+
+        .fourth {
+            margin-left: -198px;
+        }
+
+        .pr4 {
+            margin-left: 42px;
+        }
+
+        .pr5 {
+            margin-left: 42px;
+        }
+
+        .pr6 {
+            margin-left: 45px;
+
+        }
+    }
+
+    @media(min-width: 310px) and (max-width: 340px) {
+        .photo1 {
+            margin-left: 65px;
+        }
+
+        .photo2 {
+            margin-left: 65px;
+        }
+
+        .first {
+            margin-left: -215px;
+        }
+
+        .third {
+            margin-left: -234px;
+        }
+
+        .second {
+            margin-left: -225px;
+            font-size: 3.4rem;
+        }
+
+        .fourth {
+            margin-left: -232px;
+            font-size: 3.4rem;
+        }
+
+        .pr4 {
+            margin-left: 40px;
+        }
+
+        .pr5 {
+            margin-left: 40px;
+        }
+
+        .pr6 {
+            margin-left: 39px;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 310px) {
+        .photo1 {
+            margin-left: 65px;
+        }
+
+        .photo2 {
+            margin-left: 67px;
+        }
+
+        .first {
+            margin-left: -237px;
+            font-size: 3.2rem;
+        }
+
+        .second {
+            margin-left: -237px;
+            font-size: 2.9rem;
+        }
+
+        .third {
+            margin-left: -235px;
+            font-size: 3.2rem;
+        }
+
+        .fourth {
+            margin-left: -233px;
+            font-size: 3.2rem;
+        }
+
+        .pr4 {
+            /* display: flex;
+        justify-content: center;
+        align-items:center ; */
+            margin-left: 41px;
+        }
+
+        .pr5 {
+            /* display: flex;
+        justify-content: center;
+        align-items:center ; */
+            margin-left: 61px;
+        }
+
+        .pr6 {
+            /* display: flex;
+        justify-content: center;
+        align-items:center ; */
+            margin-left: 46px;
+        }
+
+        .text h1 {
+            font-size: 2.9rem;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 286px) {
+        .neet-jeet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 1px;
+        }
+    }
+
+    /* @media(min-width: 280px) and (max-width: 360px){
+    .h-primary-center{
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        margin-left: 2px; 
+    }
+} */
+    @media(min-width: 525px) and (max-width: 1095px) {
+        .h-primary-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-left: 2px;  */
+        }
+    }
+
+    @media(min-width: 357px) and (max-width: 525px) {
+        .h-primary-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-left: 2px;  */
+            font-size: 2.1rem;
+        }
+
+        .adtg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.1rem;
+        }
+    }
+
+    @media(min-width: 337px) and (max-width: 357px) {
+        .h-primary-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-left: 2px;  */
+            font-size: 2.0rem;
+        }
+
+        .adtg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.3rem;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 337px) {
+        .h-primary-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-left: 2px;  */
+            font-size: 1.7rem;
+        }
+
+        .adtg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.3rem;
+        }
+
+        .neet-jeet {
+            font-size: 1.6rem;
+        }
+    }
+
+    @media(min-width: 345px) and (max-width: 400px) {
+        .description {
+            margin-bottom: -36px;
+            margin-left: -278px;
+        }
+
+        footer .social-icons,
+        footer .Description {
+            margin-bottom: 86px;
+        }
+    }
+
+    @media(min-width: 400px) and (max-width: 437px) {
+        .description {
+            margin-bottom: -36px;
+            margin-left: -310px;
+        }
+
+        footer .social-icons,
+        footer .Description {
+            margin-bottom: 86px;
+        }
+    }
+
+    @media(min-width: 318px) and (max-width: 345px) {
+        .description {
+            margin-bottom: -46px;
+            margin-left: -235px;
+            font-size: 20px;
+        }
+
+        footer .social-icons,
+        footer .Description {
+            margin-bottom: 90px;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 318px) {
+        .description {
+            margin-bottom: -74px;
+            margin-left: -212px;
+            font-size: 20px;
+        }
+
+        footer .social-icons,
+        footer .Description {
+            margin-bottom: 98px;
+        }
+    }
+
+    @media(min-width: 700px) and (max-width: 1082px) {
+        #logo img {
+            margin-left: 150px;
+        }
+    }
+
+    @media(min-width: 280px) and (max-width: 700px) {
+        #logo img {
+            margin-left: 33px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <div id="logo">
+                <img src="logo.webp" alt="error">
+
+            </div>
+
+            <ul class="item">
+                <li><a href="neet-jeet.html" class="active">Home</a></li>
+                <li><a href="#services">Courses</a></li>
+                <li><a href="#end">Contact us</a></li>
+                <li><a href="#ceo">About us</a></li>
+            </ul>
+            <div class="Sign">
+                <div class="course">
+                    <input type="search" id="search" placeholder="   Course">
+                </div>
+                <div>
+                    <a href="#contact"><input type="button" value="sign in" id="button"></a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <section id="home">
+        <h1 class="h-primary">NEET JEEत Institute</h1>
+        <h2 class="neet-jeet">
+            Tyaari NEET JEEत ki..
+        </h2>
+        <p class="neet-jeet">
+
+        </p>
+
+        <button class="btn"><a href="#contact">Join now</a></button>
+
+
+    </section>
+    <section class="secvices-container">
+        <h1 class="h-primary-center">Our Toppers (2022)</h1>
+        <hr class="line1">
+
+        <div id="services">
+            <div class="box">
+                <div class="slider">
+                    <figure>
+                        <img src="photo.gif" alt="error" height="500px">
+                        <img src="sallu-bhai..jpg" alt="error" height="500px">
+                        <img src="WhatsApp-Image-2022-10-23-at-9.38.gif" alt="error" height="500px">
+                        <img src="motu-bhai..-new (1).jpg" alt="error" height="500px">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="ceo">
+        <div>
+            <h1 class="h-primary-center1">Founder/CEO</h1>
+        </div>
+        <hr class="line2">
+        <div class="box1">
+            <img src="https://cg3.cgsociety.org/uploads/images/medium/gmsphoto96-cartoon-boy-1-1efc5cc0-vwob.jpg">
+            <h1 class="name">Mr. Sameer Ansari</h1>
+        </div>
+    </section>
+    <section class="faculty">
+        <div>
+            <h1 class="h-primary-center1">Our Faculty</h1>
+        </div>
+        <hr class="line2">
+        <div class="physics">
+            <div>
+                <img src="https://th.bing.com/th/id/OIP.PEwrkZEtgzd9LD8LJ9FkcAHaHa?pid=ImgDet&rs=1" alt="error"
+                    class="photo1">
+            </div>
+
+            <div class="h-primary-center2">
+                <h2 class="first">Physics</h2>
+            </div>
+
+            <p class="pr4"><b>Avul Pakir Jainulabdeen(APJ) Abdul Kalam</b> 15 October 1931 – 27 July 2015) was an
+                <b>Indian
+                    aerospace
+                    scientist </b>and statesman who served as the <b>11th President of India from 2002 to 2007.</b> He
+                spent the next
+                four decades as a scientist and science administrator, mainly at the Defence Research and Development
+                Organisation (DRDO) and Indian Space Research Organisation (ISRO).
+            </p>
+        </div>
+        <div class="physics">
+            <div>
+                <img src="https://www.sapaviva.com/wp-content/uploads/2017/06/22S.-Ernest-Rutherford-1871-1937-656x656.jpg"
+                    alt="error" class="photo1">
+            </div>
+
+            <div class="h-primary-center2">
+                <h2 class="second">Chemistry</h2>
+            </div>
+
+            <p class="pr4"><b>Ernest Rutherford</b>, 1st Baron Rutherford of Nelson, OM, FRS, HonFRSE<b>(30 August 1871
+                    – 19 October 1937)</b> was a <b>New Zealand physicist</b> who came to be <b>known as the father of
+                    nuclear physics</b> .Encyclopædia Britannica considers him to be the greatest experimentalist since
+                Michael Faraday (1791–1867).He also give us many theory in chemistry just like<b>Rutherford model of an
+                    atom</b>, which we learn in our chemistry book .</p>
+        </div>
+        <div class="math">
+            <div>
+                <img src="https://i.pinimg.com/originals/79/9c/77/799c77a64abc1977cc8fb7efc7fb9557.jpg" alt="error"
+                    class="photo2">
+            </div>
+
+            <div class="h-primary-center3">
+                <h2 class="third">Math</h2>
+            </div>
+
+            <p class="pr5"><b>Srinivasa Ramanujan</b> born Srinivasa Ramanujan Aiyangar, 22 December 1887 – 26 April
+                1920) was an <b>Indian mathematician</b> who lived during British Rule in India. Though he had almost no
+                formal training in pure mathematics, <b>he made substantial contributions to mathematical analysis,
+                    number theory, infinite series, and continued fractions</b>, including solutions to mathematical
+                problems then considered unsolvable.</p>
+        </div>
+        <div class="math">
+            <div>
+                <img src="https://th.bing.com/th/id/R.2325e2787af0ad014fc825d3c2eff2b9?rik=gzBG9nvcdMC2Rg&riu=http%3a%2f%2fwww.astromia.com%2fbiografias%2ffotos%2fmendel.jpg&ehk=ThSxOSO%2fPqSnmBznOBtgHpXV3dnTzj0u7suRq%2bdcL5s%3d&risl=&pid=ImgRaw&r=0"
+                    alt="error" class="photo2">
+            </div>
+
+            <div class="h-primary-center3" id="ji">
+                <h2 class="fourth">Biology</h2>
+            </div>
+
+            <p class="pr6"><b>Gregor Johann Mendel</b>, 20 July 1822 – 6 January 1884) was a <b>biologist,
+                    meteorologist, mathematician, Augustinian friar</b> and abbot of St. Thomas' Abbey in Brünn (Brno),
+                Margraviate of Moravia. He gained posthumous recognition as the <b>founder of the modern science of
+                    genetics.</b> Though farmers had known for millennia that crossbreeding of animals and plants could
+                favor certain desirable traits, Mendel's pea plant experiments conducted between 1856 and 1863
+                established many of the rules of heredity, now referred to as the <b>laws of Mendelian inheritance.</b>
+            </p>
+        </div>
+    </section>
+    <section class="advantages">
+        <h1 class="adtg">Our Advantages</h1>
+        <div id="dld1">
+            <div class="download1">
+                <img src="download1.png" class="image">
+                <p class="downloadpara1">
+                    Conceptual clarity
+                    <br>
+                    through visualisation
+                </p>
+            </div>
+            <div class="download1">
+                <img src="download2.png" class="image">
+                <p class="downloadpara1">
+                    Personalised teacher
+                    <br>
+                    for doubt solving
+                </p>
+            </div>
+            <div class="download1">
+                <img src="download3.png" class="image">
+                <p class="downloadpara1">
+                    Live interaction
+                    <br>
+                    with teacher
+                </p>
+            </div>
+            <div class="download1">
+                <img src="pathshala-2x.png" class="image">
+                <p class="downloadpara1">
+                    Offline classes
+                    <br>
+                    with india best teacher
+                </p>
+            </div>
+            <div class="download1">
+                <img src="group-20358 (1).svg" class="image">
+                <p class="downloadpara1">
+                    Strucured and targeted
+                    <br>
+                    study material
+                </p>
+            </div>
+            <div class="download1">
+                <img src="group-20359.svg" class="image">
+                <p class="downloadpara1">
+                    Test on regular basis
+                    <br>
+                    for progress tracking
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="bg">
+        <ul class="glass">
+            <li><img src="point-slope-formula.png"></li>
+            <li><img src="solidstate.png"></li>
+            <li><img src="wave.png"></li>
+            <li><img src="chem.png"></li>
+            <li><img src="magnet.png"></li>
+            <li><img src="benzene.png"></li>
+            <li><img src="ap.png"></li>
+            <li><img src="math2_3f_14.png"></li>
+        </ul>
+        <section id="contact">
+            <h1 class="primary-center-21"><A name="form">Book Your Free Trial Classes</A></h1>
+            <div id="contact-box">
+                <form action="">
+                    <div class="form-group">
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="stream">Stream: </label>
+                        <input type="text" name="name" id="stream" placeholder="Enter your stream">
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Class: </label>
+                        <input type="number" name="name" id="class" placeholder="Enter your class">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile no.">Mobile no. : </label>
+                        <input type="number" name="name" id="mobile no." placeholder="Enter your mobile no.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address: </label>
+                        <input type="email" name="name" id="email" placeholder="Enter your email adress">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City: </label>
+                        <input type="text" name="name" id="city" placeholder="Enter your city name">
+                    </div>
+                    <div class="submit12">
+                        <div>
+                            <input type="submit" value="Submit Now" id="submit">
+                        </div>
+                        <div class="rest">
+                            <input type="reset" value="Reset" id="reset">
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </section>
+    </div>
+    <div id="end">
+        <div class="text">
+            <h1>Thankyou ji</h1>
+        </div>
+        <footer>
+            <div class="class">
+                <div class="wave" id="wave1"></div>
+                <div class="wave" id="wave2"></div>
+                <div class="wave" id="wave3"></div>
+                <div class="wave" id="wave4"></div>
+            </div>
+            <ul class="social-icons">
+                <li>
+                    <a href="https://www.whatsapp.com/" class="call"><i class="fa-solid fa-phone"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.google.co.in/" class="call"><i class="fa-brands fa-google"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/" class="call"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/" class="face"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/" class="face2"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/?lang=en-in" class="face3"><i class="fa-brands fa-twitter"></i></a>
+                </li>
+            </ul>
+            <p class="description">Created by your mitr ji <i class="fa-regular fa-face-smile"></i></p>
+        </footer>
+    </div>
+</body>
+<script>
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.item');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+
+</script>
+
+</html>
